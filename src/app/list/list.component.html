@@ -13,10 +13,10 @@
       <tr *ngFor="let person of people; let ind = index;">
       <ng-container *ngIf="person.edit; else elseBlock">
           <th scope="row">{{ ind+1 }}</th>
-          <td scope="col"><input type="text" [value]="person.name"/></td>
-          <td scope="col"><input type="number" [value]="person.age"/></td>
-          <td scope="col"><input type="text" [value]="person.city"/></td>
-          <td scope="col"><button routerLink="" class="btn btn-primary">Save</button></td>
+          <td scope="col"><input type="text" [(value)]="person.name" (change)="people[ind].name = $event.target.value"/></td>
+          <td scope="col"><input type="number" [(value)]="person.age" (change)="people[ind].age = $event.target.value"/></td>
+          <td scope="col"><input type="text" [(value)]="person.city" (change)="people[ind].city = $event.target.value"/></td>
+          <td scope="col"><button (click)="changeEdit(ind);" class="btn btn-primary">Save</button></td>
       </ng-container>
       <ng-template #elseBlock>
           <th scope="row">{{ ind+1 }}</th>

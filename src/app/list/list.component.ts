@@ -30,7 +30,7 @@ export class ListComponent implements OnInit {
   constructor(private router: Router) { }
   changeEdit(index: number) {
     console.log('calling');
-    this.people[index].edit = true;
+    this.people[index].edit = !this.people[index].edit;
     this.router.navigate(['']);
   }
   ngOnInit() {
